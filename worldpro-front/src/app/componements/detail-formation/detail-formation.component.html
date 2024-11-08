@@ -1,0 +1,26 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        
+        <div class="input-group-append">
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Detail Formation</h4>
+      <ul class="list-group" *ngIf="formation">
+        <li
+          class="list-group-item"
+          *ngFor="let formation of formation; let i = index"
+          [class.active]="i == formationid"
+        >
+          {{ formation.titre }}
+        </li>
+      </ul>
+      
+  
+     
+    </div>
+    
+  </div>

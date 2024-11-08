@@ -1,0 +1,8 @@
+<div>
+    <!-- Condition pour afficher le header principal ou celui du dashboard -->
+    <app-main-header *ngIf="!isDashboardRoute"></app-main-header>
+    <app-admin-header *ngIf="isDashboardRoute"></app-admin-header>
+  
+    <!-- Affichage du contenu de la page -->
+    <router-outlet></router-outlet>
+  </div> 

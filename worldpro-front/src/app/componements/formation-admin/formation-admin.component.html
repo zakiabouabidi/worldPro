@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <div class="content-body">
+      <div class="container-fluid">
+        <!-- Check if formations array has data -->
+        <div *ngIf="formations && formations.length > 0; else noFormations">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Iterate over formations array -->
+              <tr *ngFor="let formation of formations; let i = index">
+                <th scope="row">{{ i + 1 }}</th> <!-- Display row index -->
+                <td>{{ formation.titre }}</td> <!-- Correct property bindings -->
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.prix }}</td>
+                <td><a routerLink="/formation/{{ formation.id }}" class="btn btn-success">Détail</a></td>
+                <td ><a routerLink="/dashboard/edit/{{formation.id}}" class="btn btn-warning">Modifier</a></td>
+                <td >
+                  <button class="btn btn-danger" (click)="confirmDelete(formation.id)" >Supprimer</button>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Display this message when there are no formations -->
+        <ng-template #noFormations>
+          <p class="alert alert-warning">
+            Aucun formation trouvé !
+          </p>
+        </ng-template>
+      </div>
+    </div>
+    
+
+
+
+    
+</body>
+</html>

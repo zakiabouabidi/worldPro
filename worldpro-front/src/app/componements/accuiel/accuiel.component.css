@@ -1,0 +1,34 @@
+.bloc-red {
+    background-image:linear-gradient(to right, #a3cfdf, #061e4a);
+    /* border-radius: 66px; */
+}
+h1,h2{
+    color: #dc3545;
+    margin-top: 34px;
+   }
+
+
+
+  .box1 {
+    position: relative;
+    z-index: 1;
+    height: 497px !important;
+   
+  }
+.box3 {
+    position: absolute;
+    z-index: 2;
+    margin-top: -2%;
+    max-width: 100%;
+    padding-right: 46px;
+    padding-left: 68px;
+    margin-right: auto;
+    margin-left: auto;
+    
+  }
+  /* .container.box3{
+  width: 100%;
+  padding-right: 46px;
+  padding-left: 68px;
+  margin-right: auto;
+  margin-left: auto;} */
