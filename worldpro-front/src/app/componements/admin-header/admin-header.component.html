@@ -67,35 +67,45 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" *ngIf="!formation.id; else update"> Ajouter une formation</h5>
-        <ng-template #update>
-          <h3>Modifier</h3>
-      </ng-template>
+        <h5 class="modal-title"> Ajouter une formation</h5>
+       
         <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onSubmit()"  #form="ngForm">
           <div class="form-group">
-            <label for="name">Nom de formation</label>
-            <input type="text" class="form-control" name="name" 
-            [ngClass]="{'is-invalid':(name.invalid && name.dirty),'is-valid':name.valid}"
-            required  #name="ngModel" [(ngModel)]="formation.titre">
-            <div *ngIf="name.invalid && name.dirty" class="invalid-feedback">
+            <label class="text-black font-w500" for="name">Nom de formation</label>
+            <input type="text" class="form-control" name="titre" 
+            [ngClass]="{'is-invalid':(titre.invalid && titre.dirty),'is-valid':titre.valid}"
+            required  #titre="ngModel" [(ngModel)]="formation.titre">
+            <div *ngIf="titre.invalid && titre.dirty" class="invalid-feedback">
                 tappez votre nom de formation.
             </div>
         </div>
           
-          <div class="form-group">
-            <label class="text-black font-w500">Prix</label>
-            <input type="number" class="form-control" name="prix"  [(ngModel)]="formation.prix">
+        <div class="form-group">
+          <label class="text-black font-w500" for="name">Prix</label>
+          <input type="number" class="form-control" name="prix" 
+          [ngClass]="{'is-invalid':(prix.invalid && prix.dirty),'is-valid':prix.valid}"
+          required  #prix="ngModel" [(ngModel)]="formation.prix">
+          <div *ngIf="prix.invalid && prix.dirty" class="invalid-feedback">
+              tappez le Prix.
           </div>
-          <div class="form-group">
-            <label class="text-black font-w500">Duree</label>
-            <input type="text" class="form-control" name="prix"  [(ngModel)]="formation.duree">
-          </div>
+      </div>
+      <div class="form-group">
+        <label class="text-black font-w500" for="durree">Durée</label>
+        <input type="text" class="form-control" name="durree"
+               [ngClass]="{'is-invalid': (durree.invalid && durree.dirty), 'is-valid': durree.valid}"
+               required #durree="ngModel" [(ngModel)]="formation.durree">
+        <div *ngIf="durree.invalid && durree.dirty" class="invalid-feedback">
+            Tapez la durée de la formation.
+        </div>
+    </div>
+      
           <div class="form-group">
             <label class="text-black font-w500">Description</label>
-            <textarea class="form-control" id="description" rows="5" name="description"  [(ngModel)]="formation.description"></textarea>
+            <textarea class="form-control" id="description" rows="5" name="description" 
+             [(ngModel)]="formation.description"></textarea>
           </div>
           <div class="form-group">
                 <label class="text-black font-w500">Date de debut</label>

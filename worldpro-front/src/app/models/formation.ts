@@ -2,7 +2,7 @@ export class Formation {
     id?: any; 
     titre!: string;
     prix!: number; 
-    duree!:string;
+    durree!: string;
     description!: string;
 }
 

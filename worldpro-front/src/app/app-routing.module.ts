@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
   {path:'dashboard/add', component:AddFormationComponent},
   {path:'dashboard/formation-admin', component:FormationAdminComponent},
-  {path:'dashboard/edit/id', component: EditFormationComponent}
+  {path:'dashboard/edit/:id', component: EditFormationComponent}
  ];
 
 @NgModule({

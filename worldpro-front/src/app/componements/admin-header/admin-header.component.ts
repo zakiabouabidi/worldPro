@@ -26,7 +26,7 @@ export class AdminHeaderComponent implements OnInit {
     this.route.paramMap.subscribe((result: any) => {
       let id = result.get('id');
       if (id !== "-1") this.initFormation(id);
-      else this.formation = new Formation(); // Réinitialiser l'objet si l'id est -1
+      else this.formation = new Formation(); // Utiliser le constructeur par défaut
     });
   }
 
@@ -46,29 +46,15 @@ export class AdminHeaderComponent implements OnInit {
         });
     } 
 
-    else {
-      // Cas de mise à jour d'une formation existante
-      this.formationService.updateFormation(this.formation)
-        .subscribe({
-          next: (formation: Formation) => {
-            console.log('Formation updated:', formation);
-            // Vous pouvez ajouter une redirection ou un message de succès ici
-          },
-          error: (error) => {
-            console.error('Error updating formation:', error);
-          }
-        });
-    }
+   
   }
 
+  
   initFormation(id: any) {
     this.formationService.getById(id).subscribe({
-      next: (formation) => {
-        this.formation = formation; // Assurez-vous que la réponse contient les bonnes données
-      },
-      error: (error) => {
-        console.log("Error fetching formation:", error);
-      }
+      next: (formation) => this.formation = formation,
+      error: (error) => console.log("Error fetching formation:", error)
     });
-  }
 }
+}
+
